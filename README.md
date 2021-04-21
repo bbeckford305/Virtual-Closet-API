@@ -30,7 +30,7 @@ To plan what the user need out we have to take into consideration what the norma
 
 ### Wireframe
 
-![Wireframe](public\Images\Main-Wireframe.jpg)
+![Wireframe](https://user-images.githubusercontent.com/79342824/115593077-e7044200-a288-11eb-9705-069cf28e8f31.jpg)
 
 ### ERD
 
