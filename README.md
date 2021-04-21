@@ -1,12 +1,13 @@
 # Virtual Closet:
 > Decide what to wear by being able to pull any garment from your closet virtually and create the perfect outfit.
 
+
 Have you ever spent more time than needed deciding what to wear? Then this app is exactly what you need. I designed it with the goal in mind of allowing an indivdual to be able to store, and retreive all their garments. You have a meeting in a hour and need to find a exact type of pants and shirt. Input what your looking for and have all your items pulled for you that match those specifications
 
 ## Important Links
-[Other Repo](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
-[Deployed API](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
-[Deployed Client](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
+* [Other Repo](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
+* [Deployed API](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
+* [Deployed Client](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
 
 ## Planning Story
 
@@ -33,4 +34,4 @@ To plan what the user need out we have to take into consideration what the norma
 
 ### ERD
 
-![ERD](public\Images\Project 2 ERD.jpeg)
+![ERD](public\Images\Project-2-ERD.jpeg)
