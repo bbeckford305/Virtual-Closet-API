@@ -30,7 +30,7 @@ To plan what the user need out we have to take into consideration what the norma
 
 ### Wireframe
 
-![Wireframe](public/Images/1920-1080.jpg)
+![Wireframe](public\Images\Main-Wireframe.jpg)
 
 ### ERD
 
