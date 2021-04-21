@@ -34,4 +34,4 @@ To plan what the user need out we have to take into consideration what the norma
 
 ### ERD
 
-![ERD](public\Images\Project-2-ERD.jpeg)
+![ERD](https://user-images.githubusercontent.com/79342824/115587580-af929700-a282-11eb-90c3-ed4e31c59a50.jpeg)
