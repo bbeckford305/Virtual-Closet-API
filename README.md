@@ -5,9 +5,9 @@
 Have you ever spent more time than needed deciding what to wear? Then this app is exactly what you need. I designed it with the goal in mind of allowing an indivdual to be able to store, and retreive all their garments. You have a meeting in a hour and need to find a exact type of pants and shirt. Input what your looking for and have all your items pulled for you that match those specifications
 
 ## Important Links
-* [Other Repo](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
-* [Deployed API](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
-* [Deployed Client](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
+* [Other Repo](https://github.com/bbeckford305/Virtual-Closet-Client)
+* [Deployed API](https://virtual-closet-api.herokuapp.com/)
+* [Deployed Client](https://bbeckford305.github.io/virtual-closet-client/)
 
 ## Planning Story
 
