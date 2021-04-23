@@ -23,7 +23,7 @@ router.get('/garments/:id', requireToken, (req, res, next) => {
   // only return the garment that are owned by the user making the request
   Garment.find(req.params.id)
     .then(handle404)
-    .then(garments => res.status(200).json({ garments: garments.toObject() }))
+    .then(garments => res.status(200).json({ garments: garments }))
     .catch(next)
 })
 
