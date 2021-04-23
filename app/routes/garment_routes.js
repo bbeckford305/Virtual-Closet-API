@@ -18,10 +18,10 @@ router.post('/garments', requireToken, (req, res, next) => {
 })
 
 // GET -get- garment
-router.get('/garments/:id', requireToken, (req, res, next) => {
-  const user = req.user
+router.get('/garments/', requireToken, (req, res, next) => {
+  // const user = req.user
   // only return the garment that are owned by the user making the request
-  Garment.find({owner: user._id})
+  Garment.find(req.body.garment)
     .then(handle404)
     .then(garments => res.status(200).json({ garments: garments.toObject() }))
     .catch(next)
