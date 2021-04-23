@@ -2,11 +2,12 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-
+// require configured passport authentication middleware
+const passport = require('./lib/passport')
 // require route files
 const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
-
+const garmentRoutes = require('./app/routes/garment_routes')
 // require middleware
 const errorHandler = require('./lib/error_handler')
 const requestLogger = require('./lib/request_logger')
@@ -44,7 +45,7 @@ const port = process.env.PORT || serverDevPort
 
 // register passport authentication middleware
 app.use(auth)
-
+app.use(passport)
 // add `express.json` middleware which will parse JSON requests into
 // JS objects before they reach the route files.
 // The method `.use` sets up middleware for the Express application
@@ -58,7 +59,7 @@ app.use(requestLogger)
 // register route files
 app.use(exampleRoutes)
 app.use(userRoutes)
-
+app.use(garmentRoutes)
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
 // passed any error messages from them
