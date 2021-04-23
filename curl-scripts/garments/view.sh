@@ -11,7 +11,7 @@ curl "${API}${URL_PATH}/${ID}" \
   --data '{
       "garment": {
         "type": "'"${TYPE}"'",
-        "color": "'"${COLOR}"'"
+        "color": "'"${COLOR}"'",
         "weather": "'"${WEATHER}"'"
       }
     }'
