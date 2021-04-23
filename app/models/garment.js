@@ -20,8 +20,7 @@ const garmentSchema = new mongoose.Schema({
     type: String
   },
   weather: {
-    type: String,
-    required: true
+    type: String
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
