@@ -11,10 +11,10 @@ curl "${API}${URL_PATH}" \
   --data ' {
     "garment": {
       "type": "'"${TYPE}"'",
-      "color": "'"${COLOR}"'"
-      "cleaningMethod": "'"${CMETHOD}"'"
-      "cleaningStatus": "'"${CSTATUS}"'"
-      "wornDate": "'"${WDATE}"'"
+      "color": "'"${COLOR}"'",
+      "cleaningMethod": "'"${CMETHOD}"'",
+      "cleaningStatus": "'"${CSTATUS}"'",
+      "wornDate": "'"${WDATE}"'",
       "weather": "'"${WEATHER}"'"
     }
 

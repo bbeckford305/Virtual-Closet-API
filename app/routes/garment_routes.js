@@ -1,19 +1,19 @@
 const express = require('express')
 const router = express.Router()
 const customErrors = require('../../lib/custom_errors')
-const handle404 = require('./../lib/custom_errors')
+const handle404 = customErrors.handle404
 const passport = require('passport')
 const requireToken = passport.authenticate('bearer', {session: false})
 const requireOwnership = customErrors.requireOwnership
 const removeBlanks = require('../../lib/remove_blank_fields')
 // require models
-const Garment = require('./../models/garments')
+const Garment = require('./../models/garment')
 // POST -create- /garment
 router.post('/garments', requireToken, (req, res, next) => {
   const garmentData = req.body.garment
   garmentData.owner = req.user.id
   Garment.create(garmentData)
-    .then(garment => res.status(201).json({garment: garment}))
+    .then(garment => res.status(201).json({garment: garment.toObject()}))
     .catch(next)
 })
 
