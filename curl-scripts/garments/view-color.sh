@@ -1,7 +1,7 @@
 #!/bin/sh
 
 API="http://localhost:4741"
-URL_PATH="/garments"
+URL_PATH="/garments/color"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \
@@ -10,9 +10,7 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
       "garment": {
-        "type": "'"${TYPE}"'",
-        "color": "'"${COLOR}"'",
-        "weather": "'"${WEATHER}"'"
+        "color": "'"${COLOR}"'"
       }
     }'
 

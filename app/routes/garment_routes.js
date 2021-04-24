@@ -19,20 +19,16 @@ router.post('/garments', requireToken, (req, res, next) => {
 
 // GET -get- garment
 router.get('/garments/:id', requireToken, (req, res, next) => {
-  const garmentData = req.data.garment
+  const garmentData = req.body.garment
   garmentData.owner = req.user.id
   // const user = req.user
   // only return the garment that are owned by the user making the request
-  Garment.find(garmentData)
+  Garment.findById(req.params.id)
     .then(handle404)
     .then(garment => {
       requireOwnership(req, garment)
-      // `garments` will be an array of Mongoose documents
-      // we want to convert each one to a POJO, so we use `.map` to
-      // apply `.toObject` to each one
-      return garment.map(garment => garment.toObject())
     })
-    .then(garments => res.status(200).json({ garments: garments.toObject() }))
+    .then(garments => res.status(200).json({ garments: garments }))
 
     .catch(next)
 })
@@ -72,6 +68,25 @@ router.patch('/garments/:id', requireToken, removeBlanks, (req, res, next) => {
     })
     // if that succeeded, return 204 and no JSON
     .then(() => res.sendStatus(204))
+    // if an error occurs, pass it to the handler
+    .catch(next)
+})
+
+// INDEX-type
+// GET /garments
+router.get('/garments', requireToken, (req, res, next) => {
+  const garmentData = req.body.garment
+  garmentData.owner = req.user.id
+  Garment.find(garmentData)
+    .then(garment => {
+      // `garments` will be an array of Mongoose documents
+      // we want to convert each one to a POJO, so we use `.map` to
+      // apply `.toObject` to each one
+      requireOwnership(req, garment)
+      return garment.map(garment => garment)
+    })
+    // respond with status 200 and JSON of the garments
+    .then(garments => res.status(200).json({ garments: garments.toObject() }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
