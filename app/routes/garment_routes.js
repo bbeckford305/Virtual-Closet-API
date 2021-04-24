@@ -18,13 +18,22 @@ router.post('/garments', requireToken, (req, res, next) => {
 })
 
 // GET -get- garment
-router.get('/garments', requireToken, (req, res, next) => {
-  const garmentData = req.body.garment
+router.get('/garments/:id', requireToken, (req, res, next) => {
+  const garmentData = req.data.garment
+  garmentData.owner = req.user.id
   // const user = req.user
   // only return the garment that are owned by the user making the request
   Garment.find(garmentData)
     .then(handle404)
+    .then(garment => {
+      requireOwnership(req, garment)
+      // `garments` will be an array of Mongoose documents
+      // we want to convert each one to a POJO, so we use `.map` to
+      // apply `.toObject` to each one
+      return garment.map(garment => garment.toObject())
+    })
     .then(garments => res.status(200).json({ garments: garments.toObject() }))
+
     .catch(next)
 })
 
