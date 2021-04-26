@@ -77,7 +77,7 @@ router.patch('/garments/:id', requireToken, removeBlanks, (req, res, next) => {
 router.get('/garments', requireToken, (req, res, next) => {
   const garmentData = req.body.garment
   garmentData.owner = req.user.id
-  Garment.find(garmentData)
+  Garment.findOne({ type: req.body.garment.type })
     .then(garment => {
       // `garments` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
