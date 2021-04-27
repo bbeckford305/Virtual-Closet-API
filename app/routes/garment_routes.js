@@ -34,7 +34,7 @@ router.get('/garments/:id', requireToken, (req, res, next) => {
 })
 
 // DELETE -delete- garment
-router.delete('/garment/:id', requireToken, (req, res, next) => {
+router.delete('/garments/:id', requireToken, (req, res, next) => {
   Garment.findById(req.params.id)
     .then(handle404)
     .then(garment => {
@@ -72,7 +72,6 @@ router.patch('/garments/:id', requireToken, removeBlanks, (req, res, next) => {
     .catch(next)
 })
 
-// INDEX-type
 // GET /garments
 router.get('/garments', requireToken, (req, res, next) => {
   // const garmentData = req.body.garment
