@@ -28,7 +28,7 @@ router.get('/garments/:id', requireToken, (req, res, next) => {
     .then(garment => {
       requireOwnership(req, garment)
     })
-    .then(garments => res.status(200).json({ garments: garments.toObject() }))
+    .then(garment => res.status(200).json({ garment: garment.toObject() }))
 
     .catch(next)
 })
