@@ -87,7 +87,7 @@ router.get('/garments', requireToken, (req, res, next) => {
       return garment.map(garment => garment.toObject())
     })
     // respond with status 200 and JSON of the garments
-    .then(garment => res.status(200).json({ garment: garment }))
+    .then(garment => res.status(200).json({ garment: garment.toObject() }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
