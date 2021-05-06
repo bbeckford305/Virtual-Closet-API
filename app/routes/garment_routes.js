@@ -25,9 +25,9 @@ router.get('/garments/:id', requireToken, (req, res, next) => {
   // only return the garment that are owned by the user making the request
   Garment.findById(req.params.id)
     .then(handle404)
-    .then(garment => {
-      requireOwnership(req, garment)
-    })
+    // .then(garment => {
+    //   requireOwnership(req, garment)
+    // })
     .then(garment => res.status(200).json({ garment: garment.toObject() }))
 
     .catch(next)
@@ -87,7 +87,7 @@ router.get('/garments', requireToken, (req, res, next) => {
       return garments.map(garment => garment.toObject())
     })
     // respond with status 200 and JSON of the garments
-    .then(garments => res.status(200).json({ garments: garments }))
+    .then(garments => res.status(200).json({ garments }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
