@@ -13,7 +13,9 @@ router.post('/garments', requireToken, (req, res, next) => {
   const garmentData = req.body.garment
   garmentData.owner = req.user.id
   Garment.create(garmentData)
-    .then(garment => res.status(201).json({garment: garment.toObject()}))
+    .then(garment => {
+      res.status(201).json({garment: garment.toObject()})
+    })
     .catch(next)
 })
 
