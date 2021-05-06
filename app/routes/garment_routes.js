@@ -79,15 +79,15 @@ router.get('/garments', requireToken, (req, res, next) => {
   // garmentData.owner = req.user.id
   // req.params.type = toId(req.params.type)
   Garment.find({type: req.params.type})
-    .then(garment => {
+    .then(garments => {
       // `garments` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
       // requireOwnership(req, garment)
-      return garment.map(garment => garment.toObject())
+      return garments.map(garment => garment.toObject())
     })
     // respond with status 200 and JSON of the garments
-    .then(garment => res.status(200).json({ garment: garment.toObject() }))
+    .then(garments => res.status(200).json({ garments: garments }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
