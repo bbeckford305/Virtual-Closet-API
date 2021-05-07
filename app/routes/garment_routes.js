@@ -74,13 +74,32 @@ router.patch('/garments/:id', requireToken, removeBlanks, (req, res, next) => {
     .catch(next)
 })
 
-// GET /garments
+// GET /INDEX - garments
 router.get('/garments', requireToken, (req, res, next) => {
   // const garmentData = req.body.garment
   // garmentData.owner = req.user.id
+  // req.params.type = toId(req.params.type)
+  Garment.find()
+    .then(garments => {
+      // `garments` will be an array of Mongoose documents
+      // we want to convert each one to a POJO, so we use `.map` to
+      // apply `.toObject` to each one
+      // requireOwnership(req, garment)
+      return garments.map(garment => garment.toObject())
+    })
+    // respond with status 200 and JSON of the garments
+    .then(garments => res.status(200).json({ garments }))
+    // if an error occurs, pass it to the handler
+    .catch(next)
+})
+
+// GET /Find By Type- garments
+router.get('/garments', requireToken, (req, res, next) => {
+  // const garmentData = req.body.garment
   // garmentData.owner = req.user.id
   // req.params.type = toId(req.params.type)
-  Garment.find({type: req.params.type})
+  // Garment.find({type: req.query.type})
+  Garment.find(req.param('type'))
     .then(garments => {
       // `garments` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
