@@ -140,9 +140,9 @@ router.delete('/sign-out', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-// GET /examples
-router.options('/contact-us', (req, res) => {
-  return 'contact-us.html'
-})
+// // GET /examples
+// router.options('/contact-us', (req, res) => {
+//   return 'contact-us.html'
+// })
 
 module.exports = router
